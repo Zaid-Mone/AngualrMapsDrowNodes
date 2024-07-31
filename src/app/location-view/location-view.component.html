@@ -1,0 +1,31 @@
+<div *ngIf="locationData">
+  <h2>Location Information</h2>
+  <p><strong>Address:</strong> {{ locationData.formattedAddress }}</p>
+  <p><strong>City:</strong> {{ locationData.locality }}</p>
+  <p><strong>State:</strong> {{ locationData.adminDistrict }}</p>
+  <p><strong>Country:</strong> {{ locationData.countryRegion }}</p>
+</div>
+
+<div *ngIf="!locationData">
+  <p>Loading location data...</p>
+</div>
+
+<div *ngIf="locationBigData.length > 0">
+  <h2>Locations Information</h2>
+  <div *ngFor="let location of locationBigData; let i = index">
+    <h3>Location {{ i + 1 }}</h3>
+    <p *ngIf="location">
+      <strong>Address:</strong> {{ location.formattedAddress }}
+    </p>
+    <p *ngIf="location"><strong>City:</strong> {{ location.locality }}</p>
+    <p *ngIf="location"><strong>State:</strong> {{ location.adminDistrict }}</p>
+    <p *ngIf="location">
+      <strong>Country:</strong> {{ location.countryRegion }}
+    </p>
+    <hr />
+  </div>
+</div>
+
+<div *ngIf="locationBigData.length === 0">
+  <p>Loading location data...</p>
+</div>
